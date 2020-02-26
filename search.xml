@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="utf-8"?>
+<search> 
+  
+  
+    
+    <entry>
+      <title>Vue的生命周期</title>
+      <link href="/2020/02/25/Vue%E7%9A%84%E7%94%9F%E5%91%BD%E5%91%A8%E6%9C%9F/"/>
+      <url>/2020/02/25/Vue%E7%9A%84%E7%94%9F%E5%91%BD%E5%91%A8%E6%9C%9F/</url>
+      
+        <content type="html"><![CDATA[<h2 id="生命周期图示"><a href="#生命周期图示" class="headerlink" title="生命周期图示"></a>生命周期图示</h2><figure class="image-bubble">                <div class="img-lightbox">                    <div class="overlay"></div>                    <img src="https://tva1.sinaimg.cn/large/0082zybpgy1gc8wfaeorqj30u023zn79.jpg" alt="" title="">                </div>                <div class="image-caption"></div>            </figure><hr><ul><li>new Vue——&gt;创建一个vue实例</li><li>init()——&gt;初始化空的vue对象</li><li>beforecreate——&gt;data &amp; methods 还未初始化</li><li>created——&gt;data &amp; methods 已经初始化好，此时可调用methods方法、使用data中的数据(最早)</li><li>compile template——&gt;编译模板在内存中生成DOM树，但此时未加载到页面上</li><li>beforeMount——&gt;模板尚未挂载至页面，页面仍未更新</li><li>create vm.$el &amp; replace el with it——&gt;将内存中编译好的模板替换至页面上,此时可操作页面Dom(最早)</li><li>mounted——&gt;实例初始化加载完毕，进入运行阶段</li><li>beforeUpdate——&gt;data changed,data中数据已更新，页面上的数据仍未更新</li><li>virtual DOM re-render and patch——&gt;根据data的数据在内存中重新渲染新DOM树，更新完毕再将其渲染到页面- (model—&gt;view)</li><li>updated——&gt;页面中的data更新了</li><li>beforeDestroy——&gt;运行—&gt;销毁，此时data/methods等仍可用，并未真正销毁</li><li>destroyed——&gt;everything is null</li></ul>]]></content>
+      
+      
+      <categories>
+          
+          <category> 开发 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> Vue </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>邂逅Vuejs</title>
+      <link href="/2020/02/25/%E9%82%82%E9%80%85Vuejs/"/>
+      <url>/2020/02/25/%E9%82%82%E9%80%85Vuejs/</url>
+      
+        <content type="html"><![CDATA[<h2 id="简单认识Vuejs"><a href="#简单认识Vuejs" class="headerlink" title="简单认识Vuejs"></a>简单认识Vuejs</h2><hr><h4 id="为什么要学习Vuejs？"><a href="#为什么要学习Vuejs？" class="headerlink" title="为什么要学习Vuejs？"></a>为什么要学习Vuejs？</h4><ul><li>招聘前端的需求中，10个有8个都对Vue有或多或少的要求。</li><li>当然，作为学习者我们知道Vuejs目前非常火，可以说是前端必备的一个技能。</li><li>近两年前端技术变革速度太快，vue不论针对web项目开发，网站制作，还是app，小程序开发，都越来越流行，其便捷性及易用程度都让你不得不考虑去学习。</li></ul><hr><h4 id="Vuejs是什么？"><a href="#Vuejs是什么？" class="headerlink" title="Vuejs是什么？"></a>Vuejs是什么？</h4><ul><li><p><a href="https://cn.vuejs.org/" target="_blank" rel="noopener">Vue</a>是一个渐进式的框架，那什么是渐进式的呢？</p><ul><li>渐进式意味着你可以将Vue作为你应用的一部分嵌入其中，带来更丰富的交互体验。</li><li>或者如果你希望将更多的业务逻辑使用Vue实现，那么Vue的核心库以及其生态系统。</li><li>比如Core+Vue-router+Vuex，也可以满足你各种各样的需求。</li></ul></li><li><p>Vue有很多特点和Web开发中常见的高级功能</p><ul><li>解耦视图和数据</li><li>可复用的组件</li><li>前端路由技术</li><li>状态管理</li><li>虚拟DOM</li></ul></li><li><p>学习Vuejs的前提？</p><ul><li>需具备一定的HTML、CSS、JavaScript基础。</li></ul></li></ul><hr><h2 id="开始Vue-js之旅"><a href="#开始Vue-js之旅" class="headerlink" title="开始Vue.js之旅"></a>开始Vue.js之旅</h2><h4 id="Vue-js安装"><a href="#Vue-js安装" class="headerlink" title="Vue.js安装"></a>Vue.js安装</h4><p>使用一个框架之前我们要下载安装它。</p><p>方式一：直接CDN引入</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">&lt;!-- 开发环境版本，包含了有帮助的命令行警告 --&gt; </span><br><span class="line">&lt;script src&#x3D;&quot;https:&#x2F;&#x2F;cdn.jsdelivr.net&#x2F;npm&#x2F;vue&#x2F;dist&#x2F;vue.js&quot;&gt;&lt;&#x2F;script&gt;</span><br><span class="line"></span><br><span class="line">&lt;!-- 生产环境版本，优化了尺寸和速度 --&gt;</span><br><span class="line">&lt;script src&#x3D;&quot;https:&#x2F;&#x2F;cdn.jsdelivr.net&#x2F;npm&#x2F;vue&quot;&gt;&lt;&#x2F;script&gt;</span><br></pre></td></tr></table></figure><p>方式二：下载和引入<br>  开发环境 <a href="https://vuejs.org/js/vue.js" target="_blank" rel="noopener">https://vuejs.org/js/vue.js</a><br>  生产环境 <a href="https://vuejs.org/js/vue.min.js" target="_blank" rel="noopener">https://vuejs.org/js/vue.min.js</a></p><p>方式三：NPM安装</p>]]></content>
+      
+      
+      <categories>
+          
+          <category> 开发 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> Vue </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>关于搭建此博客</title>
+      <link href="/2020/02/23/%E6%AD%A4%E5%8D%9A%E5%AE%A2%E7%9A%84%E6%90%AD%E5%BB%BA/"/>
+      <url>/2020/02/23/%E6%AD%A4%E5%8D%9A%E5%AE%A2%E7%9A%84%E6%90%AD%E5%BB%BA/</url>
+      
+        <content type="html"><![CDATA[<h2 id="搭建前工作"><a href="#搭建前工作" class="headerlink" title="搭建前工作"></a>搭建前工作</h2><hr><h3 id="写作工具"><a href="#写作工具" class="headerlink" title="写作工具"></a>写作工具</h3><ul><li><p><a href="https://www.runoob.com/markdown/md-tutorial.html" target="_blank" rel="noopener">MarkDown</a></p><ul><li><p>Markdown是一种可以使用普通文本编辑器编写的标记语言，通过简单的标记语法，它可以使普通文本内容具有一定的格式。</p></li><li><p>语法简洁明了、学习容易，而且功能比纯文本更强。</p></li></ul></li></ul><h3 id="搭建平台"><a href="#搭建平台" class="headerlink" title="搭建平台"></a>搭建平台</h3><ul><li><p><a href="https://pages.github.com/" target="_blank" rel="noopener">Github Pages</a></p><ul><li><p>GitHub Pages旨在从GitHub存储库托管您的个人，组织或项目页面。</p></li><li><p>面对全球最大的开源社区,用户生态良好</p></li><li><p>国内访问速度慢</p></li></ul></li></ul><h3 id="框架主题"><a href="#框架主题" class="headerlink" title="框架主题"></a>框架主题</h3><ul><li><p><a href="https://hexo.io/zh-cn/" target="_blank" rel="noopener">Hexo</a></p><ul><li><p>Hexo 是一个快速、简洁且高效的博客框架。Hexo 使用 Markdown（或其他渲染引擎）解析文章，在几秒内，即可利用靓丽的主题生成静态网页。</p></li><li><p>插件丰富,拓展性强</p></li></ul></li><li><p><a href="https://github.com/yscoder/hexo-theme-indigo" target="_blank" rel="noopener">hexo-theme-material-indigo</a></p><ul><li><p>Material Design 风格的Hexo主题，基于 Hexo 3.0+ 制作。</p></li><li><p>去jQuery化以提高代码速度,更加相信现代浏览器的原生兼容性</p></li></ul></li></ul><h3 id="准备工具"><a href="#准备工具" class="headerlink" title="准备工具"></a>准备工具</h3><ul><li><p><a href="https://github.com/" target="_blank" rel="noopener">Git</a></p><blockquote><p>用来管理博客代码</p></blockquote></li><li><p><a href="https://nodejs.org/en/download/" target="_blank" rel="noopener">Node.js</a></p><blockquote><p>Hexo基于Node.js开发,下载Hexo及其主题与插件都需要用到其中的npm工具</p></blockquote></li></ul><hr><h2 id="开始搭建"><a href="#开始搭建" class="headerlink" title="开始搭建"></a>开始搭建</h2><p>  所有的命令指令都需要在Hexo根目录下执行</p><h3 id="安装hexo框架"><a href="#安装hexo框架" class="headerlink" title="安装hexo框架"></a>安装<code>hexo</code>框架</h3><ol><li><p>打开命令行(管理者模式),通过<code>npm</code>工具下载<code>hexo</code>框架</p><blockquote><p>npm install hexo-cli -g</p></blockquote></li><li><p>创建一个<code>blog</code>文件夹,并在这个文件夹中初始化一个<code>hexo</code>框架</p><blockquote><p>hexo init blog</p></blockquote></li><li><p>进入<code>blog</code>文件夹,也就是整个Hexo站点的根目录</p><blockquote><p>cd blog</p></blockquote></li><li><p>安装<code>hexo</code>所需要的文件</p><blockquote><p>npm install</p></blockquote></li><li><p>启动hexo</p><blockquote><p>hexo server #简写 hexo s</p></blockquote><p>通过<code>http://localhost:4000/</code>在浏览器中访问生成的博客</p></li></ol><h3 id="目录结构"><a href="#目录结构" class="headerlink" title="目录结构"></a>目录结构</h3><blockquote><p>_config.yml： //Hexo配置文件,网站的配置信息<br>node_modules： //依赖包<br>public： //存放生成的页面<br>scaffolds： //生成文章的一些模板<br>themes： //存放主题包<br>source： //用来存放你的文章</p><blockquote><p> _drafts： //草稿<br> _posts： //文章</p></blockquote></blockquote><h3 id="Hexo配置"><a href="#Hexo配置" class="headerlink" title="Hexo配置"></a>Hexo配置</h3><p>  在文件根目录下的<code>_config.yml</code>文件配置，详细参考<a href="https://hexo.io/zh-cn/docs/configuration" target="_blank" rel="noopener">官方的配置</a>描述。</p><h3 id="indigo安装与配置"><a href="#indigo安装与配置" class="headerlink" title="indigo安装与配置"></a>indigo安装与配置</h3><ul><li><h3 id="indigo安装"><a href="#indigo安装" class="headerlink" title="indigo安装"></a>indigo安装</h3><ul><li><p>使用git命令，执行以下命令安装</p><blockquote><p>git clone <a href="https://github.com/yscoder/hexo-theme-indigo.git" target="_blank" rel="noopener">https://github.com/yscoder/hexo-theme-indigo.git</a></p></blockquote></li><li><p>安装完打开<code>themes</code>文件夹可看见相对于的主题文件</p></li><li><p>打开根目录下的<code>_config.yml</code>对<code>theme</code>属性编辑</p><blockquote><p>theme: indigo #这里填写的主题名字</p></blockquote></li><li><p>在命令行输入<code>hexo g</code> 生成静态文件</p></li><li><p>再输入<code>hexo s</code>进行重启服务器</p></li><li><p>通过<code>http://localhost:4000/</code>在浏览器中访问生成的主题博客</p></li></ul></li></ul><h3 id="indigo配置"><a href="#indigo配置" class="headerlink" title="indigo配置"></a>indigo配置</h3><p>  修改主题目录下的<code>_config.yml</code>文件,详细可参考<a href="https://github.com/yscoder/hexo-theme-indigo/wiki/%E9%85%8D%E7%BD%AE" target="_blank" rel="noopener">主题作者的配置说明</a>描述。</p><h3 id="部署到GitHub-Pages"><a href="#部署到GitHub-Pages" class="headerlink" title="部署到GitHub Pages"></a>部署到GitHub Pages</h3><blockquote><p>hexo clean #清除本地缓存,也可以跳过这一步<br>hexo generate #生成静态资源 简写:hexo g<br>hexo deploy #部署资源 简写:hexo d</p></blockquote>]]></content>
+      
+      
+      <categories>
+          
+          <category> 博客 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> Blog </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+  
+  
+</search>
